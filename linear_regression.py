@@ -11,7 +11,7 @@ def cost_function(y_true, y_pred):
     return np.mean((y_true - y_pred) ** 2)
 
 
-def gradients(x, y, m, b):
+def gradients(x, y, y_pred, m, b):
 
     n = len(x)
 
@@ -30,25 +30,22 @@ def fit(x, y, learning_rate=0.01, iterations=10000):
     b = np.random.randn()
 
     for i in range(iterations):
-
         y_pred = predict(x, m, b)
-
         cost = cost_function(y, y_pred)
-
-        dm, db = gradients(x, y, m, b)
+        dm, db = gradients(x, y, y_pred, m, b)
 
         if abs(dm) < 0.001 and abs(db) < 0.001:
-
             print(f"Stopped at iteration {i}")
-
             break
 
         m = m - learning_rate * dm
-
         b = b - learning_rate * db
+
+        costs = []
 
         if i % 1000 == 0:
 
             print(f"Iteration {i}: Cost = {cost}")
+            costs.append(cost)
 
-    return m, b
+    return m, b, costs

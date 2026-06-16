@@ -9,7 +9,7 @@ x = np.array([1,2,3,4])
 y = np.array([40,50,60,70])
 
 
-m, b = fit(x, y)
+m, b, costs = fit(x, y)
 
 print("m =", m)
 
