@@ -1,8 +1,18 @@
 import numpy as np
+
+from linear_regression import fit
 from linear_regression import predict
 
-x = np.array([1, 2, 3, 4])
+x = np.array([1,2,3,4])
 
-result = predict(x, 10, 30)
+y = np.array([40,50,60,70])
 
-print(result)
+
+m, b = fit(x, y)
+
+print("m =", m)
+
+print("b =", b)
+
+print("Predictions =", predict(x, m, b))
+
