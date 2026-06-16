@@ -15,8 +15,6 @@ def gradients(x, y, y_pred, m, b):
 
     n = len(x)
 
-    y_pred = predict(x, m, b)
-
     dm = (1/n) * np.sum((y_pred - y) * x)
 
     db = (1/n) * np.sum(y_pred - y)
@@ -28,6 +26,8 @@ def fit(x, y, learning_rate=0.01, iterations=10000):
     m = np.random.randn()
 
     b = np.random.randn()
+
+    costs = []
 
     for i in range(iterations):
         y_pred = predict(x, m, b)
@@ -41,11 +41,10 @@ def fit(x, y, learning_rate=0.01, iterations=10000):
         m = m - learning_rate * dm
         b = b - learning_rate * db
 
-        costs = []
+        costs.append(cost)
 
         if i % 1000 == 0:
 
             print(f"Iteration {i}: Cost = {cost}")
-            costs.append(cost)
 
     return m, b, costs

@@ -30,3 +30,15 @@ plt.ylabel("test scores")
 plt.title("Linear Regression from scratch")
 
 plt.show()
+
+plt.figure()
+
+plt.plot(costs)
+
+plt.xlabel("Iterations")
+
+plt.ylabel("Cost")
+
+plt.title("Learning curve")
+
+plt.show()
