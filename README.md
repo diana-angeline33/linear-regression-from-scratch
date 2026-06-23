@@ -1,4 +1,4 @@
-What I Learned from Implementing Linear Regression from Scratch
+#What I Learned from Implementing Linear Regression from Scratch
 
 Execution Explanation
 
